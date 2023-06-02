@@ -26,4 +26,4 @@ RUN groupadd -g ${GID} ${USER} && \
 
 USER ${USER}
 
-CMD [ "python", "main.py"]
+CMD [ "python3", "main.py"]

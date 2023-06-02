@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  mirror:
+    image: ghcr.io/dragonatorul/gitea-mirror-gh-stars:latest
+    restart: never
+    environment:
+      - GITEA_HOST=${GITEA_HOST}
+      - GITEA_TOKEN=${GITEA_TOKEN}
+      - GITHUB_USER=${GITHUB_USER}
