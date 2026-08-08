@@ -5,10 +5,7 @@ on:
     - cron: '34 18 * * 0'
   push:
     branches: [ "main" ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
-  pull_request:
-    branches: [ "main" ]
+    tags: [ 'v*.*.*', 'v.*', 'v*' ]
   workflow_dispatch:
 
 env:
@@ -62,7 +59,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=schedule
+            type=schedule,pattern=weekly
             type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
